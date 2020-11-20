@@ -1,0 +1,40 @@
+<app-toolbar></app-toolbar>
+
+<div class = "container" style = "margin-top: 30px;">
+  <div class = "row">
+
+
+    <div class = "col s12 m12 l12">
+        <div class = "row">
+            <div class = "col s12 m6 l3 cardDiv" *ngFor = "let apartment of apartments">
+              <div class = "card">
+                <a >
+
+                  <div class = "card-image imgDiv">
+                      <img class = "imgCircle responsive-img" src = "https://cdn.vox-cdn.com/thumbor/pwGJpYJjHndJVqL6U-SFcPJlxGU=/0x0:4241x3336/1200x800/filters:focal(1782x1329:2460x2007)/cdn.vox-cdn.com/uploads/chorus_image/image/59404651/Oskar_Penthouse_Rendering_Hi_Res.0.jpg">
+                  </div>
+                </a>
+
+                <div class = "card-action">
+                    <h3 class = "card-title">
+                        {{apartment.apartmentName}}
+
+                    </h3>
+
+
+                   <a class="waves-effect waves-light btn" (click)="ViewApartmentInfo(apartment)"><i class="material-icons left">cloud</i>View</a>
+
+
+                </div>
+
+              </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+  </div>
+</div>

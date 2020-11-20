@@ -1,0 +1,164 @@
+<nav class = "nav-extended">
+  <div class = "container">
+      <div class="nav-wrapper">
+
+
+<!--
+          <ul id = "nav-mobile" class="left hide-on-med-and-down">
+                <li >
+
+                  <a href="#" class="brand-logo">Multi Restaurant</a>
+                  </li>
+          </ul>
+
+        -->
+
+
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+		  
+					
+		  
+		  
+		  
+			  <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+									  <a [routerLink] = "['/restaurants/all']">
+										<div>
+											Restaurant List
+
+										  </div>
+									  </a>
+									</li>
+							
+							
+								
+								
+									 <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+										<a [routerLink] = "['/restaurants/manage']">
+										  <div>
+											  Add New Restaurant
+
+											</div>
+										</a>
+									  </li>
+
+
+             
+
+               
+
+
+                  <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+                      <a [routerLink] = "['/category/all']">
+                        <div>
+                            Category List
+
+                          </div>
+                      </a>
+                    </li>
+
+                    <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+                        <a [routerLink] = "['/category/manage']">
+                          <div>
+                              Add New Category
+
+                            </div>
+                        </a>
+                      </li>
+
+
+                      <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+                          <a [routerLink] = "['/item/all']">
+                            <div>
+                                Item List
+
+                              </div>
+                          </a>
+                        </li>
+
+
+                        <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+                            <a [routerLink] = "['/item/manage']">
+                              <div>
+                                  Add New Item
+
+                                </div>
+                            </a>
+                          </li>
+
+               		
+					<li class="dropdown-button dropdown-trigger2" data-target="dropdown">
+							Manage Orders
+							
+							
+							<ul id='dropdown' class='dropdown-content'>
+							 
+								            <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+											  <a [routerLink] = "['/order/all']">
+												<div>
+													 New Orders
+
+												  </div>
+											  </a>
+											</li>
+											
+											
+											  <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+											  <a [routerLink] = "['/delivered/orders']">
+												<div>
+													 Delivered Orders
+
+												  </div>
+											  </a>
+											</li>
+											
+											 <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+											  <a [routerLink] = "['/canceled/orders']">
+												<div>
+													 Canceled Orders
+
+												  </div>
+											  </a>
+											</li>
+							
+	
+
+							  </ul>
+							
+
+						 </li>
+							
+						
+							
+							
+						
+						
+						 
+						 
+						 
+						 
+
+
+                            <li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                               </li>
+                          
+
+
+            <li class="dropdown-button dropdown-trigger" data-target="dropdown">
+                <i class ="fa fa-globe fa-1x badge"></i>
+            
+
+             </li>
+
+             <li>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+               </li>
+
+
+
+            <li><a (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
+
+  </div>
+</nav>

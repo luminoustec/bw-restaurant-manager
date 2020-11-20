@@ -1,0 +1,61 @@
+
+<ul class="collection with-header">
+
+
+
+
+
+        <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+            <a [routerLink] = "['/restaurants/manage']">
+              <div>
+                  Add Restaurant
+                  <a href="#!" class="secondary-content">
+                    <i class="material-icons">add_location</i>
+                  </a>
+                </div>
+            </a>
+          </li>
+
+
+
+
+
+
+
+          <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+              <a [routerLink] = "['/category/manage']">
+                <div>
+                    Add Category
+                    <a href="#!" class="secondary-content">
+                      <i class="material-icons">create</i>
+                    </a>
+                  </div>
+              </a>
+            </li>
+
+
+
+
+            <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+              <a [routerLink] = "['/item/manage']">
+                <div>
+                    Add Item
+                    <a href="#!" class="secondary-content">
+                      <i class="material-icons">add_circle</i>
+                    </a>
+                  </div>
+              </a>
+            </li>
+			
+	
+
+      <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a [routerLink]="['/account', 'password']">
+              <div>Change Password
+                  <a href="#!" class="secondary-content">
+                    <i class="material-icons">vpn_key</i>
+                  </a>
+                </div>
+          </a>
+      </li>
+  </ul>

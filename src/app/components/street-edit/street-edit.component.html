@@ -1,0 +1,68 @@
+<app-toolbar></app-toolbar>
+
+<div class = "container" style = "margin-top: 30px;">
+  <div class = "row">
+    <div class = "col s12 m4 l3">
+      <app-side></app-side>
+    </div>
+
+    <div class = "col s12 m8 l9">
+      <div class = "row">
+
+
+          <div id="streams" class = "col s12">
+              <div class="row">
+                    <div class = "col s12 m12 l10">
+                      <div class = "card postDiv">
+                        <div class="card-content">
+                            <form [formGroup]="postForm" novalidate (ngSubmit)="SubmitPost()">
+                                <div class = "formDiv">
+
+
+                                    <p>Street Name</p>
+                                    <div class="input-field col s12" *ngIf="street">
+                                        <input formControlName="streetName" value="{{street.streetName}}" id="streetName" type="text" class="validate">
+
+                                      </div>
+
+
+                                      <p>Street Description</p>
+                                      <div class="input-field col s12" *ngIf="street">
+                                          <input formControlName="streetDescription" value="{{street.streetDescription}}" id="streetDescription" type="text" class="validate">
+
+                                        </div>
+
+
+                                
+
+
+
+
+                                          <p>Street Image</p>
+                                          <div class="card-image" *ngIf="street">
+                                               <img src="https://files.visittallinn.ee/static/files/019/tn3_street_in_the_old_town_kadi-liis_koppel_2017_5.jpg">
+
+                                          </div>
+
+                                </div>
+
+                                <div class = "col s12" style = "padding-left:50%;">
+                                    <button class = "btn postBtn">
+                                          Edit Street
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+          </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

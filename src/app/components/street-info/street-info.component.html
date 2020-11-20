@@ -1,0 +1,73 @@
+<app-toolbar></app-toolbar>
+
+<div class = "container" style = "margin-top: 30px;">
+  <div class = "row">
+    <div class = "col s12 m4 l3">
+      <app-side></app-side>
+    </div>
+
+    <div class = "col s12 m8 l9">
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div class="card">
+
+              <div class="card-image" *ngIf="street">
+                  <img class = "imgCircle responsive-img" src = "https://files.visittallinn.ee/static/files/019/tn3_street_in_the_old_town_kadi-liis_koppel_2017_5.jpg">
+                <span class="card-title">{{street.streetName}}</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red" (click)="EditStreet(street)"><i class="material-icons">edit</i></a>
+
+
+              </div>
+
+              <div class="card-content" *ngIf="street">
+
+                      <table>
+                        <thead>
+                          <tr>
+                              <th></th>
+                              <th></th>
+
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td>Restaurant Address</td>
+                            <td>{{street.streetName}}</td>
+
+                          </tr>
+                          <tr>
+                            <td>Restaurant Latitude</td>
+                            <td>{{street.streetDescription}}</td>
+
+                          </tr>
+                       
+
+
+                          <tr>
+                            <td>Created Date</td>
+                            <td>{{TimeFromNow(street.created)}}</td>
+
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                    <div class="card-action" style ="float: right;" (click)="DeleteStreet(street)">
+                      <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Delete</a>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+    </div>
+
+  </div>
+</div>
+

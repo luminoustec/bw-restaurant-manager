@@ -1,0 +1,73 @@
+<app-toolbar></app-toolbar>
+
+<div class = "container" style = "margin-top: 30px;">
+  <div class = "row">
+    <div class = "col s12 m4 l3">
+      <app-side></app-side>
+    </div>
+
+    <div class = "col s12 m8 l9">
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div class="card">
+
+              <div class="card-image" *ngIf="apartment">
+                  <img class = "imgCircle responsive-img" src = "https://cdn.vox-cdn.com/thumbor/pwGJpYJjHndJVqL6U-SFcPJlxGU=/0x0:4241x3336/1200x800/filters:focal(1782x1329:2460x2007)/cdn.vox-cdn.com/uploads/chorus_image/image/59404651/Oskar_Penthouse_Rendering_Hi_Res.0.jpg">
+                <span class="card-title">{{apartment.apartmentName}}</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red" (click)="EditApartment(apartment)"><i class="material-icons">edit</i></a>
+
+
+              </div>
+
+              <div class="card-content" *ngIf="apartment">
+
+                      <table>
+                        <thead>
+                          <tr>
+                              <th></th>
+                              <th></th>
+
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td>Restaurant Address</td>
+                            <td>{{apartment.apartmentName}}</td>
+
+                          </tr>
+                          <tr>
+                            <td>Restaurant Latitude</td>
+                            <td>{{apartment.apartmentDescription}}</td>
+
+                          </tr>
+                       
+
+
+                          <tr>
+                            <td>Created Date</td>
+                            <td>{{TimeFromNow(apartment.created)}}</td>
+
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                    <div class="card-action" style ="float: right;" (click)="DeleteApartment(apartment)">
+                      <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Delete</a>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+    </div>
+
+  </div>
+</div>
+

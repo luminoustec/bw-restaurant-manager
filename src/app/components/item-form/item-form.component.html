@@ -1,0 +1,96 @@
+<div class="row">
+    <div class = "col s12 m12 l10">
+      <div class = "card postDiv">
+        <div class="card-content">
+            <form [formGroup]="postForm" novalidate (ngSubmit)="SubmitPost()">
+                <div class = "formDiv">
+
+                    <div class="input-field col s12">
+                        <input formControlName="itemName" id="itemName" type="text" class="validate">
+                        <label for="itemName">Item Name</label>
+                      </div>
+
+
+
+                      
+
+
+                        <p>Please Choose Item Category</p>
+
+
+                              <div class="input-field col s12">
+                                  <select formControlName="itemCategory" class="browser-default"  id="itemCategory" type="text" material-select>
+
+                                    <option [ngValue]="category._id" *ngFor="let category of categories" >{{category.categoryName}}</option>
+
+
+                                  </select>
+
+                                </div>
+
+                          <div class="input-field col s12">
+                          <input formControlName="itemDescription" id="itemDescription" type="text" class="validate">
+                          <label for="itemDescription">Item Description</label>
+                        </div>
+
+
+                        <div class="input-field col s12">
+                          <input formControlName="itemAvailable" id="itemAvailable" type="text" class="validate">
+                          <label for="itemAvailable">Item Available</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                          <input formControlName="itemPrice" id="itemPrice" type="text" class="validate">
+                          <label for="itemPrice">Item Price</label>
+                        </div>
+
+
+                        <div class="input-field col s12">
+                          <input formControlName="itemStock" id="itemStock" type="text" class="validate">
+                          <label for="itemStock">Item Stock</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                          <input formControlName="itemPercent" id="itemPercent" type="text" class="validate">
+                          <label for="itemPercent">Item Percent</label>
+                        </div>
+
+                          <p>Choose New Image for Restaurant</p>
+
+
+                    <div class="file-field input-field">
+                      <div class = "row">
+                        <div class = "col s6">
+                            <div class="btn">
+                                <span>
+                                    <i class ="material-icons">image</i>
+                                    IMAGE
+
+                                </span>
+                                <input type="file" ng2FileSelect [uploader]="uploader" (onFileSelected)="OnFileSelected($event)" >
+                              </div>
+                              <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                              </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+                <div class = "col s12" style = "padding-left:50%;">
+                    <button class = "btn postBtn">
+                          Create New Item
+                    </button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,68 @@
+<app-toolbar></app-toolbar>
+
+<div class = "container" style = "margin-top: 30px;">
+  <div class = "row">
+    <div class = "col s12 m4 l3">
+      <app-side></app-side>
+    </div>
+
+    <div class = "col s12 m8 l9">
+      <div class = "row">
+
+
+          <div id="streams" class = "col s12">
+              <div class="row">
+                    <div class = "col s12 m12 l10">
+                      <div class = "card postDiv">
+                        <div class="card-content">
+                            <form [formGroup]="postForm" novalidate (ngSubmit)="SubmitPost()">
+                                <div class = "formDiv">
+
+
+                                    <p>Apartment Name</p>
+                                    <div class="input-field col s12" *ngIf="apartment">
+                                        <input formControlName="apartmentName" value="{{apartment.apartmentName}}" id="apartmentName" type="text" class="validate">
+
+                                      </div>
+
+
+                                      <p>Apartment Description</p>
+                                      <div class="input-field col s12" *ngIf="apartment">
+                                          <input formControlName="apartmentDescription" value="{{apartment.apartmentDescription}}" id="apartmentDescription" type="text" class="validate">
+
+                                        </div>
+
+
+                                
+
+
+
+
+                                          <p>Apartment Image</p>
+                                          <div class="card-image" *ngIf="apartment">
+                                               <img src="https://cdn.vox-cdn.com/thumbor/pwGJpYJjHndJVqL6U-SFcPJlxGU=/0x0:4241x3336/1200x800/filters:focal(1782x1329:2460x2007)/cdn.vox-cdn.com/uploads/chorus_image/image/59404651/Oskar_Penthouse_Rendering_Hi_Res.0.jpg">
+
+                                          </div>
+
+                                </div>
+
+                                <div class = "col s12" style = "padding-left:50%;">
+                                    <button class = "btn postBtn">
+                                          Edit Apartment
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+          </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

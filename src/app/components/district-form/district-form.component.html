@@ -1,0 +1,46 @@
+<div class="row">
+    <div class = "col s12 m12 l10">
+      <div class = "card postDiv">
+        <div class="card-content">
+            <form [formGroup]="postForm" novalidate (ngSubmit)="SubmitPost()">
+                <div class = "formDiv">
+				
+				
+
+                    <div class="input-field col s12">
+                        <input formControlName="districtName" id="districtName" type="text" class="validate">
+                        <label for="districtName">District Name</label>
+                      </div>
+
+
+
+                      <div class="input-field col s12">
+                          <input formControlName="districtDescription" id="districtDescription" type="text" class="validate">
+                          <label for="districtDescription">District Description</label>
+                        </div>
+
+                
+				<div class="btn">
+				    <span>
+                                    <i class ="material-icons">image</i>
+                                    IMAGE
+
+                                </span>
+								</div>
+
+			
+                 
+
+                <div class = "col s12" style = "padding-left:50%;">
+                    <button class = "btn postBtn">
+                          Create New district
+                    </button>
+                </div>
+				
+				
+				</div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,68 @@
+<app-toolbar></app-toolbar>
+
+<div class = "container" style = "margin-top: 30px;">
+  <div class = "row">
+    <div class = "col s12 m4 l3">
+      <app-side></app-side>
+    </div>
+
+    <div class = "col s12 m8 l9">
+      <div class = "row">
+
+
+          <div id="streams" class = "col s12">
+              <div class="row">
+                    <div class = "col s12 m12 l10">
+                      <div class = "card postDiv">
+                        <div class="card-content">
+                            <form [formGroup]="postForm" novalidate (ngSubmit)="SubmitPost()">
+                                <div class = "formDiv">
+
+
+                                    <p>District Name</p>
+                                    <div class="input-field col s12" *ngIf="district">
+                                        <input formControlName="districtName" value="{{district.districtName}}" id="districtName" type="text" class="validate">
+
+                                      </div>
+
+
+                                      <p>District Description</p>
+                                      <div class="input-field col s12" *ngIf="district">
+                                          <input formControlName="districtDescription" value="{{district.districtDescription}}" id="districtDescription" type="text" class="validate">
+
+                                        </div>
+
+
+                                
+
+
+
+
+                                          <p>District Image</p>
+                                          <div class="card-image" *ngIf="district">
+                                               <img src="https://images.thestar.com/content/dam/thestar/life/homes/2016/02/27/gta-builders-usher-in-the-era-of-wood/cabin-rendering-for-tuckey.jpg">
+
+                                          </div>
+
+                                </div>
+
+                                <div class = "col s12" style = "padding-left:50%;">
+                                    <button class = "btn postBtn">
+                                          Edit District
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+          </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
