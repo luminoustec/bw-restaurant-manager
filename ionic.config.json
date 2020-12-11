@@ -1,0 +1,8 @@
+{
+  "name": "BiBWorks - TBC Module",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,116 @@
+<ion-header class="ion-no-border">
+	<ion-toolbar color="cab">
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>BW Restaurants Manager</ion-title>
+		<ion-img src="assets/image/logo.png" class="bib-logo2" slot="end"></ion-img>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+ 
+	<div class="div1">
+		<img class="div1-img" [src]="sce.restoSelectedItem?.imageUrl" alt="" />
+		<ion-row class="left-h">
+			<ion-col size="9" class="ellipsis">
+				<div class="bold">{{sce.restoSelectedItem?.resto_name}}</div>
+				<div><span class="gray">{{sce.restoSelectedItem?.category}}</span> &nbsp; <span
+						class="orange">{{sce.restoSelectedItem?.pricy}}</span></div>
+			</ion-col>
+			<ion-col size="3">
+				<img src="assets/images/star.png" style="width: 17px; height: 17px; border: 0"> <span class="orange">
+					{{sce.restoSelectedItem?.rating}}</span><span style="font-size: .8rem; color:rgb(145, 143, 143);"> /
+					5</span>
+			</ion-col>
+		</ion-row>
+		<ion-row class="margin-top-small">
+			<ion-col style=" background-color: #f9f9f9">
+				<div class="ellipsis small3" style="color: rgb(107, 106, 106)">{{sce.restoSelectedItem?.address}}</div>
+				<div class="small3">{{sce.restoSelectedItem?.time}}</div>
+			</ion-col>
+		</ion-row>
+	</div>
+
+	<!-- ------------------ items list --------------- -->
+
+	<div class="web">
+
+		<h4 class="resto-title"> Items (<strong>{{ itemsList.length  }}</strong>) </h4>
+
+		<ion-img *ngIf="_items" src="assets/images/loader.gif" class="loader"></ion-img>
+
+		<div *ngIf="itemsList.length > 0" style=" max-width: 450px">
+			<div class="div0" *ngFor="let p of itemsList, let j=index">
+				<img [src]="p?.thumbnail" />
+				<ion-row class="left-h">
+					<ion-col size="12" class="ellipsis">
+						<div class="resto-sub-title">
+							<div>
+								<ion-icon name="create" class="font1-5 orangex" (click)="editItemData(j)"></ion-icon>
+								<strong>{{p.menu_subTitle}}</strong>
+							</div>
+							<div class="small-font" style="color:rgb(155, 155, 155)" *ngIf="item_name != ''">
+								{{p.item_name}}</div>
+							<div class="orange"><strong>{{p.price}}</strong></div>
+							<div class="black-text margin-top-small">{{p.description}}</div>
+							<div *ngIf="item_description" style="font-size: .8rem; color: rgb(0, 0, 0);">
+								{{p.item_description}}</div>
+						</div>
+					</ion-col>
+				</ion-row>
+			</div>
+
+		</div>
+
+		<div *ngIf="_editItem" class="div-form"
+			style="position: fixed; top: 10%; right: 10%; z-index: 1000; border: 1px solid #818181">
+			<ion-list class="form-items">
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Item Name</ion-label>
+					<ion-input name="" [(ngModel)]="editItem.item_name" type="text"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Menu SubTitle</ion-label>
+					<ion-input name="" [(ngModel)]="editItem.menu_subTitle" type="text"></ion-input>
+				</ion-item>
+
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Price</ion-label>
+					<ion-input name="" [(ngModel)]="editItem.price" type="text"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">description</ion-label>
+					<textarea class="textc" name="" [(ngModel)]="editItem.description" type="text"></textarea>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Item Description</ion-label>
+					<textarea class="textc" name="" [(ngModel)]="editItem.item_description" type="text"></textarea>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Image</ion-label>
+					<ion-input name="" [(ngModel)]="editItem.image" type="text"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Image Url</ion-label>
+					<ion-input name="" [(ngModel)]="editItem.thumbnail" type="text"></ion-input>
+				</ion-item>
+
+				<ion-button color="cab2" shape="round" type="submit" class="submit-button" (click)="_editItem = false;">
+					Cancel </ion-button>
+
+				<ion-button color="cab2" shape="round" type="submit" class="submit-button" (click)="saveItem()"> Save
+				</ion-button>
+			</ion-list>
+		</div>
+
+	</div>
+
+</ion-content>

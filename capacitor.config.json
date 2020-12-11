@@ -1,0 +1,31 @@
+{
+  "appId": "com.delivery.user",
+  "appName": "BiBWorks Express",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 7000
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-targetSdkVersion": "29",
+      "android-minSdkVersion": "21",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "1000",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "9000",
+      "Orientation": "portrait",
+      "BackgroundColor": "0xff563629",
+      "GOOGLE_MAPS_ANDROID_API_KEY": "AIzaSyB7Q6KO11AvlTu7aeXYmN0L23KagtC7_pg",
+      "GOOGLE_MAPS_IOS_API_KEY": "AIzaSyB7Q6KO11AvlTu7aeXYmN0L23KagtC7_pg",
+      "WKWebViewOnly": "true",
+      "CordovaWebViewEngine": "CDVWKWebViewEngine"
+    }
+  }
+}

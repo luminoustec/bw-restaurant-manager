@@ -1,0 +1,12 @@
+[
+	{ "id": "1", "name": "Pizza",         "icon": "pizza.png" },
+	{ "id": "2", "name": "Burgers",       "icon": "burger.png" },
+	{ "id": "3", "name": "Mexican",       "icon": "mexican.png" },
+	{ "id": "4", "name": "Italian",       "icon": "italian.png" },
+	{ "id": "5", "name": "Indian",        "icon": "indian.png" },
+	{ "id": "6", "name": "Mediterranean", "icon": "mediterranean.png" },
+	{ "id": "7", "name": "Chinese",       "icon": "chinese.png" },
+	{ "id": "8", "name": "Thai",          "icon": "thai.png" },
+	{ "id": "9", "name": "Japanese",      "icon": "japanese.png" },
+	{ "id": "10","name": "Korean",        "icon": "korean.png" }
+  ]

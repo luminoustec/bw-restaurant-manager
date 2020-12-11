@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<ion-app>
+ 
+      <ion-menu contentId="main-content">
+        <ion-content class="col-y">
+          <ion-menu-toggle auto-hide="false">
+
+            <ion-row (click)="logout()">
+              <ion-col size="1.5"  class="text-center">
+                <ion-icon name="log-out"></ion-icon>
+              </ion-col>
+              <ion-col size="10.5">
+                Logout
+              </ion-col>
+            </ion-row>
+
+            </ion-menu-toggle>
+        </ion-content>
+      </ion-menu>
+      <ion-router-outlet id="main-content"></ion-router-outlet>
+ 
+  </ion-app>

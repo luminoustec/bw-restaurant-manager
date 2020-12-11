@@ -1,0 +1,39 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar color="cab">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Admin Log In</ion-title>
+    </ion-buttons>
+    <ion-img src="assets/image/logo.png" class="bib-logo2" slot="end"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="brown-back center">
+ 
+    <ion-card  class="margin-top-big">
+      <ion-card-content class="login">
+            <div class="label">Email</div>
+            <ion-item>
+              <ion-icon name="mail-open" slot="start"></ion-icon>
+              <ion-input type="email" [(ngModel)]="user.email" clearInput autofocus></ion-input>
+            </ion-item>
+        
+            <div class="label">Password</div>
+            <ion-item>
+              <ion-icon name="lock-closed" slot="start"></ion-icon>
+              <ion-input type="password" [(ngModel)]="user.password" clearInput></ion-input>
+            </ion-item>
+        
+ 
+
+          <div class="brown-back circle margin-top center-h">
+            <ion-icon *ngIf="!spinner" class="icon-but" name="arrow-forward-circle-outline" color="light" (click)="login()"></ion-icon>
+              <ion-spinner  *ngIf="spinner" name="lines"class="icon-but"></ion-spinner>
+          </div>
+      </ion-card-content>
+    </ion-card>
+
+
+</ion-content>
+

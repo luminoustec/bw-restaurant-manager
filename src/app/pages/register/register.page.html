@@ -1,0 +1,108 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar color="cab">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+            <ion-title>Register</ion-title>
+        </ion-buttons>
+        <ion-img
+            src="assets/image/logo.png"
+            class="bib-logo2"
+            slot="end"
+        ></ion-img>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="brown-back center">
+    <div class="margin-top"></div>
+    <ion-card class="margin-top">
+        <ion-card-content class="login">
+            <div class="label">First Name</div>
+            <ion-item>
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-input
+                    type="text"
+                    [(ngModel)]="user.first_name"
+                ></ion-input>
+            </ion-item>
+
+            <div class="label">Last Name</div>
+            <ion-item>
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-input type="text" [(ngModel)]="user.last_name"></ion-input>
+            </ion-item>
+
+            <div class="label">Email</div>
+            <ion-item>
+                <ion-icon name="mail-open" slot="start"></ion-icon>
+                <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+            </ion-item>
+
+            <div class="label">Mobile</div>
+            <ion-item>
+                <ion-icon name="call" slot="start"></ion-icon>
+                <ion-input
+                    (input)="formatPhone($event)"
+                    type="tel"
+                    [(ngModel)]="user.phone"
+                ></ion-input>
+            </ion-item>
+
+            <div class="label">Password</div>
+            <ion-item>
+                <ion-icon name="lock-closed" slot="start"></ion-icon>
+                <ion-input
+                    type="password"
+                    [(ngModel)]="user.password"
+                ></ion-input>
+            </ion-item>
+
+            <div class="label">Confirm Password</div>
+            <ion-item>
+                <ion-icon name="lock-closed" slot="start"></ion-icon>
+                <ion-input type="password" [(ngModel)]="confirm"></ion-input>
+            </ion-item>
+
+            <div style="text-align: right" class="vert">
+                <div class="log1 right">
+                    <ion-checkbox
+                        color="cab"
+                        [(ngModel)]="isChecked"
+                        class="cbox"
+                    ></ion-checkbox>
+                    Agree to our
+                    <a
+                        href="https://bibworks.com/terms-of-service/"
+                        target="_blank"
+                        >Terms & Conditions</a
+                    >
+                </div>
+
+                <div class="brown-back circle margin-top center-h">
+                    <ion-icon
+                        *ngIf="!spinner"
+                        class="icon-but"
+                        name="arrow-forward-circle-outline"
+                        color="light"
+                        (click)="registerUser()"
+                    ></ion-icon>
+                    <ion-spinner
+                        *ngIf="spinner"
+                        name="lines"
+                        class="icon-but"
+                    ></ion-spinner>
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+    <div style="margin-top: 0.4rem">
+        <ion-label style="color: white; text-shadow: 1px 1px 1px black"
+            >Already Have an Account?
+            <span routerLink="/loginPage"
+                ><strong>Sign In</strong></span
+            ></ion-label
+        >
+    </div>
+
+    <br /><br />
+</ion-content>

@@ -1,0 +1,177 @@
+<ion-header class="ion-no-border">
+	<ion-toolbar color="cab">
+			<ion-buttons slot="start">
+				<ion-menu-button></ion-menu-button>
+			</ion-buttons>
+            <ion-title>BW Restaurants Manager</ion-title>
+			<ion-img src="assets/image/logo.png" class="bib-logo2" slot="end"></ion-img>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+<div class="web"> 
+ 
+	 <ion-img *ngIf="_resto" src="assets/images/loader.gif" class="loader"></ion-img>
+
+    <div *ngIf="categories.length > 0">
+	<h4 class="resto-title">All Categories <ion-icon class="font2 orangex" name="add-circle-outline" (click)="addCategory()"></ion-icon></h4> 
+    <div class="wrapper" style=" background-color: rgb(247, 243, 243); border-radius: 20px">
+		<div class="scrolls">
+			<div class="div2" *ngFor="let p of categories; let ii=index">
+					<img  (click)="loadResto(p?.id, p?.name)" [src]="p?.icon" alt="{{p?.name}}" />
+					<div  (click)="loadResto(p?.id, p?.name)">{{p?.name}}</div>
+					<ion-icon class="font1-5 gray"     name="folder-open-outline"  (click)="loadResto(p?.id, p?.name)"></ion-icon>
+					<ion-icon  class="font1-5 orangex" name="create-outline" (click)="editCategory(ii)"></ion-icon>
+					<ion-icon class="font1-5 gray"     name="close-circle-outline" (click)="delCategory(p.id, ii)"></ion-icon>
+			</div>
+			<!-- edit -->
+			<div *ngIf="_editCat" class="div-form">
+			<ion-list class="form-items">
+				<ion-item>
+				  <ion-label position="fixed" color="dark" class="gray-light">Cat Name</ion-label>
+				  <ion-input name="fullname" [(ngModel)]="editCat.name" type="text"></ion-input>
+				</ion-item>
+		  
+				<ion-item class="margin-top-small">
+				  <ion-label position="fixed" color="dark" class="gray-light">Cat Image</ion-label>
+				  <ion-input name="email" [(ngModel)]="editCat.icon" type="text"></ion-input>
+				</ion-item>
+
+				<ion-button color="cab2" shape="round" type="submit" class="submit-button" (click)="_editCat = false;">
+					Cancel
+				</ion-button>
+
+				<ion-button color="cab2" shape="round" type="submit" class="submit-button" (click)="saveCategory()">
+					Save Category
+				</ion-button>
+			  </ion-list>
+			</div>
+
+		</div>
+		
+	</div>
+    </div>
+</div>
+
+<!-- ------------------ resto list --------------- -->
+<div class="web"> 
+    <h4  class="resto-title"> <strong class="orange">{{restoName}} </strong> Restaurants (<strong>{{ restaurants.length }}</strong>) </h4>
+ 
+		<ion-img *ngIf="_searchResto" src="assets/images/loader.gif" class="loader"></ion-img>
+
+       <div *ngIf="restoPage.length > 0" style=" background-color: rgb(243, 239, 239); max-width: 450px">
+		   <div class="div0" *ngFor="let p of restoPage, let j=index">
+				<img [class.selected]="p?.disabled" [src]="p?.imageUrl" alt="{{p?.resto_name}}" (click)="openItems(j, p?.disabled)" />
+				<div class="resto-time" *ngIf="p?.delivery_time">{{p?.delivery_time}} mins</div>
+				<!-- <div class="resto-wish left-h"><ion-icon name="heart" color="danger"></ion-icon></div> -->
+				<ion-row class="left-h">
+					<ion-col size="9" class="ellipsis">
+						<ion-icon class="font1-5 gray"  (click)="openItems(j, p?.disabled)"   name="folder-open-outline"  ></ion-icon>
+						<ion-icon name="create-outline" class="font1-5 orangex" (click)="editRestaurant(j)"></ion-icon>
+					 <div class="resto-sub-title" >
+						<strong (click)="openItems(j, p?.disabled)">{{p?.resto_name}}</strong>
+					</div>
+					 
+					</ion-col>
+					<ion-col size="3">
+						<img src="assets/images/star.png" style="width: 17px; height: 17px; border: 0"> 
+						<span class="orange"> {{p?.rating}}</span>
+						<span style="font-size: .8rem; color:rgb(145, 143, 143);"> /5</span>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+					 <div class="ellipsis small3" style="color: rgb(110, 109, 109)">{{p?.category}}</div>
+					<div class="ellipsis small3" style="color: rgb(175, 172, 172)">{{p?.address}}</div>
+					<div class="small3 orange"><strong>{{p?.pricy}}</strong> &nbsp; -  &nbsp; {{p?.time}}</div>			
+					</ion-col>
+				 </ion-row>	
+		   </div>
+
+		   <h4 class="resto-title center"><strong>{{ pagination }}</strong></h4>
+		   <ion-row *ngIf="restoPage.length > 0" class="but-sce margin-top-small" style=" background-color: rgb(243, 239, 239);">
+			   <ion-col size="6"  >
+				   <ion-button (click)="prev()" color="cab2" shape="round" class="width100"
+					   [disabled]=" currentPage == 1 ? true : false">
+					   PREVIOUS
+				   </ion-button>
+			   </ion-col>
+			   <ion-col size="6"  >
+				   <ion-button (click)="next()" color="cab2" shape="round" class="width100"
+					   [disabled]=" currentPage == totalPages ? true : false">
+					   NEXT
+				   </ion-button>
+			   </ion-col>
+		   </ion-row>
+
+		</div>
+
+
+ 
+		<div *ngIf="_editResto" class="div-form" style="position: fixed; top: 10%; right: 10%; z-index: 1000; border: 1px solid #818181">
+			<ion-list class="form-items">
+				<ion-item>
+				  <ion-label position="fixed" color="dark" class="gray-light">Name</ion-label>
+				  <ion-input name="fullname" [(ngModel)]="editResto.resto_name" type="text"></ion-input>
+				</ion-item>
+
+				  <ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">category</ion-label>
+					<ion-input name="fullname" [(ngModel)]="editResto.category" type="text"></ion-input>
+				  </ion-item>
+
+
+				  <ion-item>
+				  <ion-label position="fixed" color="dark" class="gray-light">Address</ion-label>
+				  <ion-input name="fullname" [(ngModel)]="editResto.address" type="text"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Delivery Time</ion-label>
+					<ion-input name="fullname" [(ngModel)]="editResto.delivery_time" type="text"></ion-input>
+				  </ion-item>
+
+				  <ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Lat</ion-label>
+					<ion-input name="fullname" [(ngModel)]="editResto.lat" type="text"></ion-input>
+				  </ion-item>
+
+				  <ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Lng</ion-label>
+					<ion-input name="fullname" [(ngModel)]="editResto.lng" type="text"></ion-input>
+				  </ion-item>
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Pricy</ion-label>
+					<ion-input name="fullname" [(ngModel)]="editResto.pricy" type="text"></ion-input>
+				 </ion-item>
+
+				 <ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Rating</ion-label>
+					<ion-input name="fullname" [(ngModel)]="editResto.rating" type="text"></ion-input>
+				 </ion-item>
+
+				 <ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Open Time</ion-label>
+					<ion-input name="fullname" [(ngModel)]="editResto.time" type="text"></ion-input>
+				 </ion-item>
+
+				<ion-item>
+				  <ion-label position="fixed" color="dark" class="gray-light">Image</ion-label>
+				  <ion-input name="email" [(ngModel)]="editResto.image" type="text"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="fixed" color="dark" class="gray-light">Image Url</ion-label>
+					<ion-input name="fullname" [(ngModel)]="editResto.imageUrl" type="text"></ion-input>
+				  </ion-item>
+
+				<ion-button color="cab2" shape="round" type="submit" class="submit-button" (click)="_editResto = false;"> Cancel </ion-button>
+
+				<ion-button color="cab2" shape="round" type="submit" class="submit-button" (click)="saveResto()"> Save </ion-button>
+			  </ion-list>
+		</div>
+
+</div>
+</ion-content>
+ 
